@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District - plats{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <h2 class="mt-4">Plats :</h2><br><br>
+    <div class="row col-12">
+
+
+    {% for plat in plat %}
+
+        <div class="card text-white bg-dark mb-3 mx-4" style="max-width: 20rem;">
+                <div class="card-header">
+                {{ plat.libelle }}
+                </div>
+                <div class="card-link mb-3">
+                <a href="{{ path('plat.index') }}"><img src="images_the_district/food/{{ plat.image }}" width=100%></a>
+                </div>
+        </div>
+
+    {% endfor %}
+    </div>
+
+</div>
+
+
+
+{% endblock %}

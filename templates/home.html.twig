@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District - Accueil{% endblock %}
+
+{% block body %}
+
+
+<div id="test">
+
+    <div>
+    <br><br><br><br>
+    </div>
+
+    <div class="mx-4">
+    <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Que cherchez vous ?">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>
+    <br> <br><br>
+    <div>
+
+</div>
+
+
+<div class="container">
+    <h2>Catégories :</h2><br><br>
+    <div class="row col-12">
+
+
+    {% for categorie in categorie %}
+
+        <div class="card text-white bg-dark mb-3 mx-4" style="max-width: 20rem;">
+                <div class="card-header">
+                {{ categorie.libelle }}
+                </div>
+                <div class="card-link mb-3">
+                <a href="{{ path('plat.index') }}"><img src="images_the_district/category/{{ categorie.image }}" width=100%></a>
+                </div>
+        </div>
+
+    {% endfor %}
+    </div>
+
+</div>
+
+
+
+{% endblock %}
