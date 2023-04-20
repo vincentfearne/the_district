@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}détail plat - The District{% endblock %}
+
+
+
+
+
+
+{% block body %}
+
+
+
+
+<div class="container">
+
+{{ plat.libelle }}
+
+<img src="{{ asset("images_the_district/food/") }}{{ plat.image }}" width=100%>
+
+
+</div>
+
+
+
+
+{% endblock %}

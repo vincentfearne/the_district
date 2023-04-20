@@ -23,13 +23,13 @@
 
 
 <div class="container">
-    <h2>Catégories :</h2><br><br>
+    <h2>Catégories :</h2><br>
     <div class="row col-12">
 
 
-    {% for categorie in categorie %}
+    {% for categorie in categorie|slice(0, 6) %}
 
-        <div class="card text-white bg-dark mb-3 mx-4" style="max-width: 20rem;">
+        <div class="card text-white bg-dark mb-2 mx-3" style="max-width: 10rem;">
                 <div class="card-header">
                 {{ categorie.libelle }}
                 </div>
@@ -37,10 +37,29 @@
                 <a href="{{ path('plat.index') }}"><img src="images_the_district/category/{{ categorie.image }}" width=100%></a>
                 </div>
         </div>
-
     {% endfor %}
     </div>
+</div>
 
+<br>
+
+<div class="container">
+    <h2>Nos plats phares :</h2><br>
+    <div class="row">
+
+
+    {% for plat in plat|slice(0, 3) %}
+
+        <div class="card text-white bg-dark mb-2 mx-3" style="max-width: 15rem;">
+                <div class="card-header">
+                {{ plat.libelle }}
+                </div>
+                <div class="card-link mb-3">
+                <a href="{{ path('detail.plat', {'id': plat.id}) }}"><img src="images_the_district/food/{{ plat.image }}" width=100%></a>
+                </div>
+        </div>
+    {% endfor %}
+    </div>
 </div>
 
 

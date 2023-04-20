@@ -11,29 +11,38 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     #[Route('/', 'home.index', methods: ['GET'])]
-    public function index(CategorieRepository $repository): Response
+    public function index(CategorieRepository $repository, PlatRepository $platRepository): Response
     {
 
         $categorie = $repository->findAll();
+        $plat = $platRepository->findAll();
+        return $this->render('/home.html.twig', ['categorie' => $categorie, 'plat' => $plat]);
     
-        return $this->render('/home.html.twig', [
-            'categorie' => $categorie
-        ]);
     }
 
     #[Route('/plat', 'plat.index', methods: ['GET'])]
     public function plat(PlatRepository $platRepository): Response
     {
         
-
-        $plat = $platRepository->findAll();
-
         return $this->render('/plat.html.twig', [
-            'plat' => $plat
+            'plat' => $platRepository->findAll()
         ]);
 
 
     }
+
+    #[Route('/plat/{id}', 'detail.plat', methods: ['GET'])]
+    public function detailplat(PlatRepository $detailplatRepository, int $id): Response
+    {
+        
+
+        return $this->render('/detailplat.html.twig', [
+            'plat' => $detailplatRepository->findOneBy( ['id' => $id] )
+
+        ]);
+
+    }
+
 
     
 }
