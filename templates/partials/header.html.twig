@@ -7,19 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="{{ path('home.index') }}">Accueil
+          <a class="nav-link" href="{{ path('home.index') }}">Accueil
             <span class="visually-hidden">(current)</span>
           </a>
-                  <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Catégories</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ path('categorie.index') }}">Catégories
+            <span class="visually-hidden">(current)</span>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ path('plat.index') }}">Plats</a>
@@ -28,6 +22,25 @@
           <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
+
+      <ul>
+      {% if app.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+        </li>
+      {% endif %}
+      </ul>
+
+
+
+
     </div>
   </div>
 </nav>

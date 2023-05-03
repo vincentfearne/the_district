@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Repository\PlatRepository;
 use App\Repository\CategorieRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,6 +44,28 @@ class HomeController extends AbstractController
 
     }
 
+    #[Route('/categorie', 'categorie.index', methods: ['GET'])]
+    public function categorie(CategorieRepository $categorieRepository): Response
+    {
+        
+        return $this->render('/categorie.html.twig', [
+            'categorie' => $categorieRepository->findAll()
+        ]);
+
+
+    }
+
+    #[Route('/categorie/{id}', 'detail.categorie', methods: ['GET'])]
+    public function detailcategorie(Categorie $detailcategorie): Response
+    {
+        
+
+        return $this->render('/detailcategorie.html.twig', [
+            'categorie' => $detailcategorie
+
+        ]);
+
+    }
 
     
 }

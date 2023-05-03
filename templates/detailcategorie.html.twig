@@ -1,23 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}The District - plats{% endblock %}
+{% block title %}The District - catégorie{% endblock %}
 
 {% block body %}
 
 
 <div class="container">
-    <h2 class="mt-4">Plats :</h2><br><br>
+    <h2 class="mt-4">{{ categorie.libelle }} :</h2><br><br>
     <div class="row col-12">
 
 
-    {% for plat in plat %}
+    {% for plat in categorie.plat %}
 
         <div class="card text-white bg-dark mb-3 mx-4" style="width: 18rem; height: 18rem;">
                 <div class="card-header">
                 {{ plat.libelle }}
                 </div>
                 <div class="card-link mb-3">
-                <a href="{{ path('detail.plat', {'id': plat.id}) }}"><img src="images_the_district/food/{{ plat.image }}" width="10rem" class="w-100"></a>
+                <a href="{{ path('detail.plat', {'id': plat.id}) }}"><img src="/images_the_district/food/{{ plat.image }}" width="150rem"></a>
                 </div>
         </div>
 

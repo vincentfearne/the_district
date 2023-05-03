@@ -9,17 +9,43 @@
 
 {% block body %}
 
-
-
+<br>
+<br>
+<div class="container col-12">
+    <h1>{{ plat.libelle }}</h1>
+</div>
 
 <div class="container">
 
-{{ plat.libelle }}
 
-<img src="{{ asset("images_the_district/food/") }}{{ plat.image }}" width=100%>
+    <div class="row">
 
+    <div class="col-6">
+    <br>
+    <img src="{{ asset("images_the_district/food/") }}{{ plat.image }}" width=100%>
+    <br>
+    </div>
+    
+
+    <div class="col-6 align-self-center">
+
+    <h4>Description :</h4>
+    {{ plat.description }}
+    <br>
+    <button type="button" class="btn btn-primary mt-4" href="#">Commander</button>
+    </div>
+
+    </div>
 
 </div>
+
+
+<br>
+
+</div>
+
+
+
 
 
 
