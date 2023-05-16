@@ -21,6 +21,13 @@ class CrudController extends AbstractController
         return $this->render('crud/newcategorie.html.twig', [
         'form' => $form->createView()
         ]);
+
+        if($form->isSubmitted()){
+
+        
+        $image = $form->get('image')->getData();
+        dd($image);
+        }
     }
 
     #[Route('/plat/nouveau', 'plat.new', methods: ['GET', 'POST'])]

@@ -6,6 +6,7 @@ use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -23,17 +24,16 @@ class CategorieType extends AbstractType
                 'label' => 'Libelle',
                 'label_attr' => ['class' => 'form-label mt-4'],
             ])
-            ->add('image')
             ->add('active')
-            ->add('submit', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-primary'],
-                    'label' => 'Ajouter la catégorie'
-            ])
             ->add('image', FileType::class, [
                 'label' => false,
                 'mapped' => false,
                 'required' => false
+            ])
+            ->add('submit', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'],
+                    'label' => 'Ajouter la catégorie'
             ]);
     }
 
