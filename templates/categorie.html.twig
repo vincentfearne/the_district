@@ -12,12 +12,12 @@
 
     {% for categorie in categorie %}
 
-        <div class="card text-white bg-dark mb-3 mx-4" style="width: 18rem; height: 18rem;">
+        <div class="card text-white bg-dark mb-3 mx-4" style="width: 25rem; height: 27rem;">
                 <div class="card-header">
                 {{ categorie.libelle }}
                 </div>
                 <div class="card-link mb-3">
-                <a href="{{ path('detail.categorie', {'id': categorie.id}) }}"><img src="images_the_district/category/{{ categorie.image }}" width="150rem"></a>
+                <a href="{{ path('detail.categorie', {'id': categorie.id}) }}"><img src="{{ asset('images_the_district/category/mini/300x300-' ~ categorie.image ) }}" width="100%"></a>
                 </div>
         </div>
 
