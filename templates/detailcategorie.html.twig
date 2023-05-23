@@ -12,12 +12,12 @@
 
     {% for plat in categorie.plat %}
 
-        <div class="card text-white bg-dark mb-3 mx-4" style="width: 18rem; height: 18rem;">
+        <div class="card text-white bg-dark mb-3 mx-4" style="width: auto;">
                 <div class="card-header">
                 {{ plat.libelle }}
                 </div>
                 <div class="card-link mb-3">
-                <a href="{{ path('detail.plat', {'id': plat.id}) }}"><img src="/images_the_district/food/{{ plat.image }}" width="150rem"></a>
+                <a href="{{ path('detail.plat', {'id': plat.id}) }}"><img src="{{ asset('images_the_district/plat/mini/300x300-' ~ plat.image ) }}" width="150rem"></a>
                 </div>
         </div>
 
