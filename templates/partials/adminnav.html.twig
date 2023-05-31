@@ -1,23 +1,46 @@
-<aside class="col-3 border border-light bg-white p-2">
+<aside class="bg-white p-2">
 
-    <article class="card mb-3">
-        <div class="card-header">
-            Catégories
-        </div>
-        <div class="card-body">
-            <p><a href="">Liste des catégories</a></p>
-            <p><a href="{{ path('categorie.new') }}">Ajouter une catégorie</a></p>
-        </div>
-    </article>
 
-        <article class="card mb-3">
-        <div class="card-header">
-            Plats
-        </div>
-        <div class="card-body">
-            <p><a href="">Liste des plats</a></p>
-            <p><a href="{{ path('plat.new') }}">Ajouter un plat</a></p>
-        </div>
-    </article>
+<div class="row">
+	<article class="col-4 card mb-3 mt-3">
+		<div class="card-header">
+			Catégories
+		</div>
+		<div class="card-body">
+			<p>
+				<a href="{{ path('admin_categorie_index') }}">Liste des catégories</a>
+			</p>
+			<p>
+				<a href="{{ path('categorie.new') }}">Ajouter une catégorie</a>
+			</p>
+		</div>
+	</article>
+
+	<article class="col-4 card mb-3 mt-3">
+		<div class="card-header">
+			Plats
+		</div>
+		<div class="card-body">
+			<p>
+				<a href="{{ path('admin_plat_index') }}">Liste des plats</a>
+			</p>
+			<p>
+				<a href="{{ path('plat.new') }}">Ajouter un plat</a>
+			</p>
+		</div>
+	</article>
+
+    	<article class="col-4 card mb-3 mt-3">
+		<div class="card-header">
+			Utilisateurs
+		</div>
+		<div class="card-body">
+			<p>
+				<a href="{{ path('admin_user') }}">Liste des utilisateurs</a>
+            </p>
+		</div>
+	</article>
+
+ </div>
 
 </aside>

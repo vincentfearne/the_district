@@ -38,12 +38,13 @@ class PlatType extends AbstractType
                 'choice_label' => "libelle"
 
             ])
+            ->add('active')
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary'],
-                    'label' => 'Ajouter la catégorie'
+                    'label' => 'Valider'
             ])
-            ->add('active');
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

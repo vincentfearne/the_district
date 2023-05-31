@@ -33,7 +33,7 @@ class CategorieType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary'],
-                    'label' => 'Ajouter la catégorie'
+                    'label' => 'Valider'
             ]);
     }
 

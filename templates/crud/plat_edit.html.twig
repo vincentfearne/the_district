@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<br>
+<div class="container">
+
+{% for message in app.flashes('success') %}
+    <div class="flash-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+    <h1>Modification d'un plat</h1>
+    <br>
+    {{ form(form) }}
+</div>
+
+{% endblock %}

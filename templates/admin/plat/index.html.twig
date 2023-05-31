@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des plats
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+
+
+		<main class="border border-light bg-light p-2">
+			<h1>Liste des plats</h1>
+		</main>
+
+		{% for message in app.flashes('success') %}
+    <div class="flash-success">
+        {{ message }}
+    </div>
+{% endfor %}
+		{% include "partials/adminnav.html.twig" %}
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Image</th>
+					<th>Libelle</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+					<th>Active</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for plat in plat %}
+					<tr>
+						<td>{{ plat.id }}</td>
+						<td><img src="{{ asset('images_the_district/plat/mini/300x300-' ~ plat.image ) }}" width="100%"></td>
+						<td>{{ plat.libelle }}</td>
+                        <td>{{ plat.description }}</td>
+                        <td>{{ plat.prix }}</td>
+						<td>{{ plat.active }}</td>
+                        <td>
+                            <a href="{{ path('plat.edit', {'id': plat.id}) }}" class="btn btn-info">Modifier</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('plat.delete', {'id': plat.id}) }}" class="btn btn-danger">Supprimer</a>
+                        </td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+{% endblock %}

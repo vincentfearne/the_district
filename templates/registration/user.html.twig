@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District - Utilisateurs
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="container">
+		<h2 class="mt-4">Utilisateurs :</h2><br><br>
+		<div class="row col-12">
+
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Prénom</th>
+						<th>Nom</th>
+						<th>Mail</th>
+						<th>Téléphone</th>
+						<th>Statut</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in user %}
+                    <tr>
+						<td>
+								<div class="card-header">
+									<a href="">{{ user.prenom }}</a>
+								</div>
+						</td>
+						<td>
+								<div class="card-header">
+									<a href="">{{ user.nom }}</a>
+								</div>
+						</td>
+						<td>
+								<div class="card-header">
+									<a href="">{{ user.email }}</a>
+								</div>
+					
+						</td>
+						<td>
+								<div class="card-header">
+									<a href="">{{ user.telephone }}</a>
+								</div>
+						</td>
+						<td>
+								<div class="card-header">
+									<a href="">{{ user.roles[0] }}</a>
+								</div>
+						</td>
+						<td>
+                    </tr>
+						{% endfor %}
+					</div>
+				</tbody>
+			</table>
+
+		</div>
+
+
+	{% endblock %}

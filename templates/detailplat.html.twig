@@ -32,10 +32,12 @@
     <h4>Description :</h4>
     {{ plat.description }}
     <br>
-    <button type="button" class="btn btn-primary mt-4" href="#">Commander</button>
+    <a href="{{ path('cart_add', {'id': plat.id}) }}" class="btn btn-primary mt-4" >Ajouter au panier</a>
     </div>
 
     </div>
+
+
 
 </div>
 

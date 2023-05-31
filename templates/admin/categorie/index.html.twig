@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des catégories
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+
+
+		<main class="border border-light bg-light p-2">
+			<h1>Liste des catégories</h1>
+		</main>
+{% for message in app.flashes('success') %}
+    <div class="flash-success">
+        {{ message }}
+    </div>
+{% endfor %}
+		{% include "partials/adminnav.html.twig" %}
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Libelle</th>
+					<th>Image</th>
+					<th>Active</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for categorie in categorie %}
+					<tr>
+						<td>{{ categorie.id }}</td>
+						<td>{{ categorie.libelle }}</td>
+						<td><img src="{{ asset('images_the_district/category/mini/300x300-' ~ categorie.image ) }}" width="5%"></td>
+						<td>{{ categorie.active }}</td>
+                        <td>
+                            <a href="{{ path('categorie.edit', {'id': categorie.id}) }}" class="btn btn-info">Modifier</a>
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-danger">Supprimer</a>
+                        </td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+{% endblock %}

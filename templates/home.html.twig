@@ -34,7 +34,7 @@
                 {{ categorie.libelle }}
                 </div>
                 <div class="card-link mb-3">
-                <a href="{{ path('detail.categorie', {'id': categorie.id}) }}"><img src="images_the_district/category/{{ categorie.image }}" width=100%></a>
+                <a href="{{ path('detail.categorie', {'id': categorie.id}) }}"><img src={{ asset('images_the_district/category/mini/300x300-' ~ categorie.image ) }} width=100%></a>
                 </div>
         </div>
     {% endfor %}

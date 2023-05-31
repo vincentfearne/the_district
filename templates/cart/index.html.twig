@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District - Panier{% endblock %}
+
+{% block body %}
+
+{% set T = 0 %}
+
+<div class="container mt-4">
+<h1 class="pb-3">Mon panier</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Image</th>
+					<th>Libelle</th>
+					<th class="text-center">Quantité</th>
+					<th class="text-center">Prix unitaire</th>
+					<th class="text-center">Prix total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in cart %}
+				{% set T = T + (item.quantity * item.plat.prix) %}
+					<tr>
+                        <td><img src="{{ asset('images_the_district/plat/mini/300x300-' ~ item.plat.image ) }}" class="align-middle" width="20%"></td>
+						<td class="align-middle">{{ item.plat.libelle }}</td>
+                        <td class="align-middle">
+							<div class="count-input ms-n3">
+								<a href="{{ path('cart_decrease', {id: item.plat.id}) }}" class="btn btn-secondary" data-decrement>-</a>
+								<input type="number" value="{{ item.quantity }}" readonly>
+								<a href="{{ path('cart_add', {id: item.plat.id}) }}" class="btn btn-secondary" data-increment>+</a>
+							</div>
+						</td>
+						<td class="align-middle"><p class="text-center">{{ item.plat.prix }}€</p></td>
+						<td class="align-middle"><p class="text-center">{{ item.quantity * item.plat.prix }}€</p></td>
+                        <td class="align-middle"><a href="{{ path('cart_remove', {id: item.plat.id}) }}" title="Supprimer" class="btn btn-primary">X</a></td>
+					</tr>
+				{% endfor %}
+					<tr>
+					<td></td><td></td><td></td><td></td><td>Total TTC : </td><td> {{ T }} €</td>
+					</tr>
+			</tbody>
+		</table>
+
+						<div class="container-fluid">
+						<a href="{{ path('plat.index') }}" class="btn btn-info ml-3">Continuer le shopping</a>
+						<a href="" class="btn btn-outline-success ml-3">Valider et payer</a>
+						<a href="{{ path('cart_removeAll') }}" class="btn btn-primary">Supprimer tout le panier</a>
+						</div>
+
+<br>
+
+
+	
+
+
+
+	
+	
+</div>
+{% endblock %}
