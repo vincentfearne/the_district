@@ -37,6 +37,10 @@ class Commande
     #[ORM\Column(length: 255)]
     private ?string $adresse_client = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $stripe_id = null;
+
+
     #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Detail::class)]
     private Collection $detail;
 
@@ -135,6 +139,18 @@ class Commande
     public function setAdresseClient(string $adresse_client): self
     {
         $this->adresse_client = $adresse_client;
+
+        return $this;
+    }
+
+    public function getStripeId(): ?string
+    {
+        return $this->stripe_id;
+    }
+
+    public function setStripeId(string $stripe_id): self
+    {
+        $this->stripe_id = $stripe_id;
 
         return $this;
     }

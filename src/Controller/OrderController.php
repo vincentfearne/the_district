@@ -3,11 +3,12 @@
 namespace App\Controller;
 
 use App\Form\OrderType;
+use App\Entity\Commande;
 use App\Service\CartService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends AbstractController
 {
@@ -43,7 +44,13 @@ class OrderController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            
+            $datetime = new \DateTime ('now');
+            $delivery = $form->get('addresses')->getData();
+            $commande = new Commande();
+            $commande->setUser($this->getUser());
+            $commande->setDateCommande($datetime);
+
+
         }
 
         return $this->render('order/recap.html.twig');
